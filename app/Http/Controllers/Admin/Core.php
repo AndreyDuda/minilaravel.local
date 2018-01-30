@@ -11,6 +11,6 @@ class Core extends Controller
 
     }
     public function article(){
-
+        echo __METHOD__;
     }
 }

@@ -11,26 +11,25 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
+Route::get('/', ['as'=>'home','uses'=>'Admin\IndexController@show']);
 
-Route::get('/','IndexController@index');
+/*Route::get('/','IndexController@index');*/
 Route::get('/about/{id}','FirstController@show');
+/*Route::controller('pages','PagesController');*/
 
 Route::get('/articles/', [
-    'uses'=>'Admin/Core@articles',
-    'as'=>'articles'
+    'uses' => 'Admin\Core@articles',
+    'as' => 'articles'
 ]);
-Route::get('/article/{id}', [
-    'uses'=>'Admin/Core@article',
-    'as'=>'article'
+Route::get('/article/{page}', [
+    'uses' => 'Admin\Core@article',
+    'as' => 'article'
 ]);
 
 /*Route::get('/pages/add','Admin\CoreResourse@add');
 Route::resource('/pages/','Admin\CoreResourse',['except'=>['index','show']]);*/
 
-Route::controller('pages','PagesController');
+/*Route::controller('/pages','PagesController');*/
 
 /*Route::get('/page/{id}',function($id){
     echo $id;
