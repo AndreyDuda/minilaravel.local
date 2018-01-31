@@ -1,0 +1,10 @@
+@extends('layouts.layout')
+@section('navbar')
+    @parent
+@endsection
+@section('header')
+    @parent
+@endsection
+@section('content')
+    @include('contents.contant')
+@endsection

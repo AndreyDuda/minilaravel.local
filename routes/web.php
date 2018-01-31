@@ -14,7 +14,7 @@
 Route::get('/', ['as'=>'home','uses'=>'Admin\IndexController@show']);
 
 /*Route::get('/','IndexController@index');*/
-Route::get('/about/{id}','FirstController@show');
+Route::get('/about/','FirstController@show');
 /*Route::controller('pages','PagesController');*/
 
 Route::get('/articles/', [
@@ -25,6 +25,7 @@ Route::get('/article/{page}', [
     'uses' => 'Admin\Core@article',
     'as' => 'article'
 ]);
+Route::match(['get','post'], '/contact',['uses'=>'Admin\ContactController@show','as'=>'contact']);
 
 /*Route::get('/pages/add','Admin\CoreResourse@add');
 Route::resource('/pages/','Admin\CoreResourse',['except'=>['index','show']]);*/
