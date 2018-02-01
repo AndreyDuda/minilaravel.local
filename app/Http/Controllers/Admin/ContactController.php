@@ -29,9 +29,9 @@ class ContactController extends Controller
 
 
 
-        /*if($request->has('name')) {
+        if($request->has('name')) {
             echo '<h1 style="margin-top:100px">'.$request->input('name','Default').'</h1>';
-        }*/
+        }
 
 
         //echo '<h1 style="margin-top:100px">'.$request->name.'</h1>';

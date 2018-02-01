@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 
 class FirstController extends Controller
 {
@@ -29,7 +30,8 @@ class FirstController extends Controller
         );
 
         if(view()->exists('index')){
-            return view('index',$array);
+            $view = view('index',$array)->withTitle('Hello')->render();
+            return (new Response('',200))->view('index', $array);
         }
         abort(404);
 
