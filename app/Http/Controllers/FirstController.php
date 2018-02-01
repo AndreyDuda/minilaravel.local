@@ -10,28 +10,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
+use DB;
 
 class FirstController extends Controller
 {
     public function show(){
 
-        $array=array(
-            'title' => 'Lara',
-            'data'  => [
-                'one'   => 'List 1',
-                'two'   => 'List 2',
-                'three' => 'List 3',
-                'four'  => 'List 4',
-                'five'  => 'List 5'
-            ],
-            'data1' => ['List 1', 'List 2', 'List 3', 'List 4', 'List 5'],
-            'bvar'  => true,
-            'script' => "<script>alert('Hello')</script>"
-        );
 
         if(view()->exists('index')){
-            $view = view('index',$array)->withTitle('Hello')->render();
-            return (new Response('',200))->view('index', $array);
+            $articles=DB::SELECT('SELECT * FROM `articles` WHERE id=:id',['id'=>2]);
+            dump($articles);
+            return view('index')->withTitle('Hello Word');
         }
         abort(404);
 
