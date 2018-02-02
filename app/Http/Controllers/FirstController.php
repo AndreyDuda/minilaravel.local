@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use DB;
+use App\Article;
 
 class FirstController extends Controller
 {
@@ -18,7 +19,8 @@ class FirstController extends Controller
 
 
         if(view()->exists('index')){
-            $articles=DB::SELECT('SELECT * FROM `articles` WHERE id=:id',['id'=>2]);
+            /*$articles=DB::SELECT('SELECT * FROM `articles` WHERE id=:id',['id'=>2]);*/
+            $articles = Article::all();
             dump($articles);
             return view('index')->withTitle('Hello Word');
         }
