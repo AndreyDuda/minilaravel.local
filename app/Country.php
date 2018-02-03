@@ -4,10 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Country extends Model
 {
-    //
-    protected $table='articles';
+    protected $table = 'countrys';
 
     public function user(){
         return $this->belongsTo('App\User');
