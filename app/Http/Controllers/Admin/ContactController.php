@@ -6,23 +6,32 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ContactRequest;
+use Validator;
 
 
 class ContactController extends Controller
 {
 
-    public function show(Request $request,$id=FALSE) {
+    public function store() {
+
+
+        return view('contact',['title'=>'Contacts']);
+    }
+
+
+    public function show(ContactRequest $request,$id=FALSE) {
 
         if($request->isMethod('post')){
 
-            $rules = [
-              'name' => 'required|max:10',
-              'email' => 'required|email'
-            ];
-
-            $this->validate($request,$rules);
-
-            dump($request->all());
+            /* $message = [];
+             $validator = Validator::make($request->all(),[
+                'name'=>'required'
+             ], $message);
+             if($validator->fails()){
+                return redirect()->route('contact')->withErrors($validator)->withInput();
+             }
+             dump($request->all());*/
         }
 
         return view('contact',['title'=>'Contacts']);

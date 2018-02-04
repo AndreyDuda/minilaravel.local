@@ -26,7 +26,7 @@
         @endif
 
 
-    <form method="post" action="/contact">
+    <form method="post" action="{{ route('contact') }}">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="name">Name</label>

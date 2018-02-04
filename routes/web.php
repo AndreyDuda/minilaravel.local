@@ -23,5 +23,6 @@ Route::get('/article/{page}', [
     'uses' => 'Admin\Core@article',
     'as' => 'article'
 ]);
-Route::match(['get','post'], '/contact',['uses'=>'Admin\ContactController@show','as'=>'contact']);
+Route::get('/contact',['uses'=>'Admin\ContactController@store','as'=>'contact']);
+Route::post('/contact',['uses'=>'Admin\ContactController@show']);
 
