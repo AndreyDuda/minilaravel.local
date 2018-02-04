@@ -27,4 +27,9 @@ class ContactRequest extends FormRequest
             'name'=>'required'
         ];
     }
+    public function message(){
+        return[
+            'required' => 'Поле :attribute объязаткльное к заполнепнию'
+        ];
+    }
 }

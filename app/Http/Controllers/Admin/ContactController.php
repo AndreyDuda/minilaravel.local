@@ -10,6 +10,7 @@ use App\Http\Requests\ContactRequest;
 use Validator;
 
 
+
 class ContactController extends Controller
 {
 
@@ -20,22 +21,26 @@ class ContactController extends Controller
     }
 
 
-    public function show(ContactRequest $request,$id=FALSE) {
+    public function show(ContactRequest $request,$id=FALSE)
+    {
 
-        if($request->isMethod('post')){
+        if ($request->isMethod('post')) {
 
-            /* $message = [];
-             $validator = Validator::make($request->all(),[
-                'name'=>'required'
-             ], $message);
-             if($validator->fails()){
-                return redirect()->route('contact')->withErrors($validator)->withInput();
-             }
-             dump($request->all());*/
+            $message = [
+                'name.required' => 'Ошибка'
+            ];
+            $validator = Validator::make($request->all(), [
+                'name' => 'required'
+            ], $message);
+            if ($validator->fails()) {
+                dump($validator->errors()->all());
+                 return redirect()->route('contact')->withErrors($validator)->withInput();
+            }
+            /*dump($validator->errors());*/
         }
 
-        return view('contact',['title'=>'Contacts']);
+        /*return view('contact',['title'=>'Contacts']);
+    }*/
     }
-
 }
 
