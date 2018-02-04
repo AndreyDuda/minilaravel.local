@@ -15,7 +15,18 @@
         This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
     </p>
 
-    <form method="get" action="/contact">
+        @if(count($errors)>0)
+            <div class="alert alert-danger">
+              <ul>
+                  @foreach($errors->all() as $error)
+                      <li>{{$error}}</li>
+                  @endforeach
+              </ul>
+            </div>
+        @endif
+
+
+    <form method="post" action="/contact">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="name">Name</label>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoleUserTable extends Migration
+class CreatePostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,8 @@ class CreateRoleUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('role_user', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->integer('user_id')->unsigned('id')->default(1);
-            $table->foreign('user_id')->referrence('id')->on('users');
-
-            $table->integer('role_id')->unsigned()->default(1);
-            $table->foreign('role_id')->reference('id')->on('roles');
 
             $table->timestamps();
         });
@@ -33,6 +27,6 @@ class CreateRoleUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('role_user');
+        Schema::dropIfExists('posts');
     }
 }
