@@ -24,5 +24,9 @@ Route::get('/article/{page}', [
     'as' => 'article'
 ]);
 Route::get('/contact',['uses'=>'Admin\ContactController@store','as'=>'contact']);
-Route::post('/contact',['uses'=>'Admin\ContactController@show']);
+Route::post('/contact',['uses'=>'Admin\ContactController@show'])->middleware('auth');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
