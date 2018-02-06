@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
 use Validator;
+use Illuminate\Support\Facades\Lang;
 
 
 
@@ -47,7 +48,7 @@ class ContactController extends Controller
             dump($result);
             dump($result1);
             /*dump($validator->errors());*/
-            return view('contact',['title'=>'Contacts']);
+            return view('contact',['title'=>Lang::get('messages.welcome',array('name'=>'Юзер'))]);
         }
 
         /*return view('contact',['title'=>'Contacts']);
