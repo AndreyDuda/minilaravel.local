@@ -4,9 +4,10 @@
     <div class="col-md-9">
 
     <pre>
-		{{ print_r(Session::all()) }}
-		</pre>
 
+
+		</pre>
+        {{--{{ dump(Session::all()) }}--}}
     <div class="">
         <h2>Contact us!</h2>
     </div>
